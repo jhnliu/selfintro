@@ -22,10 +22,12 @@ export const connectToDatabase = async () => {
     cached.promise =
         cached.promise ||
         mongoose.connect(MONGODB_URL, {
-            dbName: "Cluster0", bufferCommands: false
+            dbName: "Selfintro", bufferCommands: false
         });
-    cached.conn = await cached.promise;
 
+    console.log("Connecting to database...")
+    cached.conn = await cached.promise;
+    console.log("Database connected")
     return cached.conn;
 
 }
