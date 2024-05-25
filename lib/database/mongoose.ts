@@ -1,5 +1,4 @@
 import mongoose, { Mongoose } from "mongoose";
-import { cache } from "react";
 
 const MONGODB_URL = process.env.MONGODB_URL
 
@@ -15,7 +14,7 @@ if (!cached) {
 }
 
 export const connectToDatabase = async () => {
-    if (!cached.conn) return cached.conn;
+    if (cached.conn) return cached.conn;
 
     if (!MONGODB_URL) throw new Error("Missing MONGODB_URL");
 
